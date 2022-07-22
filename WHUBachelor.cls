@@ -1,6 +1,6 @@
 % !Mode:: "TeX:UTF-8"
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{WHUBachelor}[2016/05/31 4.0 Wuhan University Thesis Template for Bachelor Degree]
+\ProvidesClass{WHUBachelor}[2022/07/22 5.0 Wuhan University Thesis Template for Bachelor Degree]
 \LoadClass[zihao=-4,a4paper,oneside]{ctexbook}
 %\setmainfont{Times New Roman}
 
@@ -82,6 +82,9 @@
       \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{专\hfill 业\hfill 名\hfill 称\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\the\Cmajor}\hfill{}} & \\[3ex]
       \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{课\hfill 程\hfill 名\hfill 称\hfill:\hfill}} & {  {}\raisebox{-3ex}[0pt]{\the\Ccoursename}\hfill{}} & \\[3ex]
 	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\the\Csupervisor}\hfill{}} & \\[3ex]
+
+      % 关闭第二指导教师显示
+      % \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\the\CsupervisorAnother}\hfill{}} & \\[3ex]
 	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 学\hfill 号\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\the\CstudentNum}\hfill{}} & \\[3ex]
 	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 姓\hfill 名\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\@author}\hfill{}} & \\[3ex]
      \end{tabular}

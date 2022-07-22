@@ -1,0 +1,151 @@
+% !Mode:: "TeX:UTF-8"
+%% 请使用 XeLaTeX 编译本文.
+% \documentclass{WHUBachelor}% 选项 forprint: 交付打印时添加, 避免彩色链接字迹打印偏淡. 即使用下一行:
+\documentclass[forprint]{WHUBachelor}
+%---------------------这里添加所需的package--------------------------------
+\usepackage{url}
+
+%--------------------------------------------------------------------------
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+\begin{document}
+%-----------------------------------------------------------------------------
+
+%%%%%%% 下面的内容, 据实填空.
+
+\Ccoursename{XXX课程} %课程名称
+\title{ ~\LaTeX~ 模板及使用教程\\Introduction of ~\LaTeX~ Template} %实验名称 换行请使用\\
+\author{} % 学生姓名
+\Csupervisor{XXXX \quad 教授} %指导教师一姓名、职称
+
+% 默认不显示指导教师二，需要时可在WHUBachelor.cls 80+行处将"关闭第二指导教师显示"下一行的注释解除
+\CsupervisorAnother{无} %指导教师二姓名、职称 
+
+\CstudentNum{XXXX} %学号
+\Cmajor{XXXX} % 专业名称
+\date{二〇一九年六月} % 日期
+
+%-----------------------------------------------------------------------------
+
+\pdfbookmark[0]{封面}{title}         % 封面页加到 pdf 书签
+\maketitle
+\frontmatter
+\pagenumbering{Roman}              % 正文之前的页码用大写罗马字母编号.2019.6.16:更新 正文之前的页码隐藏，无需显示
+%-----------------------------------------------------------------------------
+\include{pages/frontmatter}    % 加入摘要, 申明.
+%==========================把目录加入到书签==============================%%%%%%
+
+
+\tableofcontents
+\thispagestyle{empty}				%不显示罗马数字 ——zmx更新于2019.06.18
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+
+
+
+\mainmatter %% 以下是正文
+%%%%%%%%%%%%%%%%%%%%%%%%%%%--------main matter-------%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}%plain
+%\cfoot{\thepage{\zihao{5}\bf\usefonttimes}}
+%\renewcommand{\baselinestretch}{1.6}
+%\setlength{\baselineskip}{23pt}
+\baselineskip=23pt  % 正文行距为 23 磅
+
+%此处书写正文-------------------------------------------------------------------------------------
+
+\include{pages/chapter1.tex}
+\include{pages/chapter2.tex}
+\include{pages/chapter3.tex}
+\include{pages/chapter4.tex}
+
+
+%此处结束正文-------------------------------------------------------------------------------------------------
+
+
+\include{pages/backmatter} %%%结论
+
+%%%============================================================================================================%%%
+
+%%%=== 参考文献 ========%%%
+\cleardoublepage\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+\renewcommand{\baselinestretch}{1.6}
+\begin{thebibliography}{00}
+
+  \bibitem{mapreduce} Dean J, Ghemawat S. MapReduce: Simplified Data Processing on Large Clusters[A].Eric A. Brewer, Peter Chen.6th Symposium on Operating Systems Design and Implementation(OSDI 2004)[C], San Francisco, California, USA: {USENIX} Association, 2004:137--150.
+
+  \bibitem{r1} 作者. 文章题目 [J].  期刊名, 出版年份，卷号(期数): 起止页码.
+
+  \bibitem{r2} 作者. 书名 [M]. 版次. 出版地：出版单位，出版年份：起止页码.
+
+  \bibitem{r3} 邓建松等, 《\LaTeXe~科技排版指南》, 科学出版社.
+
+  \bibitem{r4} 吴凌云, 《CTeX~FAQ (常见问题集)》, \textit{Version~0.4}, June 21, 2004.
+
+  \bibitem{r5} Herbert Vo\ss, Mathmode, \url{http://www.tex.ac.uk/ctan/info/math/voss/mathmode/Mathmode.pdf}.
+
+
+\end{thebibliography}
+
+
+
+%%%-------------- 附录. 不需要可以删除.-----------
+
+
+\appendix
+
+\chapter{测试}
+
+\section{第一个测试}
+测试公式编号
+\begin{equation}
+1+1=2.
+\end{equation}
+
+表格编号测试
+
+\begin{table}[h]
+  \centering
+  \caption{测试表格}
+  \begin{tabular}{*{20}c}
+     \hline
+     % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+     11 & 13  & 13  & 13  & 13 \\
+     12 & 14  & 13  & 13  & 13 \\
+     \hline
+   \end{tabular}
+\end{table}
+
+
+\chapter{附录测试}
+
+%%%-------------- 教师评语评分 ------------------
+\begin{teacher}
+\thispagestyle{empty}
+评语: 
+\par
+\vspace*{12.5cm}
+\hspace*{7.5cm}评分: 
+\vspace*{1cm}
+
+\hspace*{7.3cm}评阅人:
+
+\vspace*{0.5cm}
+
+\hspace*{10.1cm}年\hspace*{1cm}月\hspace*{1cm}日
+
+\vspace*{0.5cm}
+
+{\songti \zihao{4} \makebox[1cm][s]{（备注：对该实验报告给予优点和不足的评价，并给出百分制评分。）}}
+
+\end{teacher}
+
+
+\cleardoublepage
+\end{document}
+
+
+
+
+
