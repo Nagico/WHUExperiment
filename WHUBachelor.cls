@@ -1,9 +1,30 @@
 % !Mode:: "TeX:UTF-8"
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{WHUBachelor}[2022/07/22 5.0 Wuhan University Thesis Template for Bachelor Degree]
+\RequirePackage{expl3 , xparse , l3keys2e}
+\ProvidesClass{WHUBachelor}[2022/07/22 Wuhan University Thesis Template for Experimental Report]
+
+
+\ExplSyntaxOn
+\msg_new:nnn { whu-thesis } { 引擎不支持 }
+  {
+    whu-thesis ~ 不支持 ~ #1 ~ 引擎。\\\\
+
+    请使用 ~ XeLaTeX ~ 或 ~ LuaLaTeX ~ 进行编译！
+  }
+
+\sys_if_engine_xetex:F
+  {
+    \sys_if_engine_luatex:F
+      {
+        \msg_fatal:nnx { whu-thesis } { 引擎不支持 }
+          { \c_sys_engine_str }
+      }
+  }
+
+\ExplSyntaxOff
+
 \LoadClass[zihao=-4,a4paper,oneside]{ctexbook}
 %\setmainfont{Times New Roman}
-
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions
@@ -11,10 +32,12 @@
 \DeclareOption{forprint}{\printtrue}
 \ProcessOptions
 
-
+\usepackage[dvipsnames, svgnames, x11names]{xcolor}
 
 %------------------------ Page layout ----------------------------------
 \RequirePackage{fancyhdr,hyperref}
+\RequirePackage{float}
+\RequirePackage{subcaption}
 
 \hypersetup{pdfencoding=auto}  %%% 邓东升修改
  \ifprint
@@ -132,22 +155,66 @@
     {\par}
 	
 %%------------------------常用宏包-----------------------------------
-\RequirePackage{amsmath,amssymb}
-\RequirePackage{float}
-\RequirePackage{subcaption}
+\RequirePackage{amssymb}
+\RequirePackage{unicode-math}
+% \RequirePackage[tbtags]{amsmath}
+\RequirePackage{mathtools}
 \RequirePackage{extarrows}
+\RequirePackage{ragged2e} % for \RaggedRight macro
 \RequirePackage{booktabs}
+\RequirePackage[normalem]{ulem}
+\RequirePackage{physics}
 \RequirePackage{supertabular}
 \RequirePackage{multirow}
 \RequirePackage[amsmath,thmmarks]{ntheorem}% AMSLaTeX宏包.
+
 \RequirePackage{graphicx}                 % 图形
+\RequirePackage { tikz, pgfplots } % 绘图
+\pgfplotsset { compat = 1.17 }
 \RequirePackage{color}             %支持彩色
 \RequirePackage{listings}
 %\RequirePackage{mathrsfs}   % 不同于\mathcal or \mathfrak 之类的英文花体字体
 \RequirePackage{url}
 \RequirePackage{enumerate}
 \RequirePackage{CJKfntef}
-\usepackage[dvipsnames]{xcolor}
+\RequirePackage{natbib}
+
+\RequirePackage{hhline, boldline}
+\RequirePackage{seqsplit, caption} %for table spacing to second row
+\RequirePackage{siunitx} %for table spacing to second row
+\RequirePackage{threeparttable} %to add footnote below table
+
+% 使用 tabularx 创建占满宽度的表格
+\RequirePackage { tabularx }
+
+\newcolumntype{L}{>{\RaggedRight\hangafter=1\hangindent=0em}X}
+\newcolumntype{C}{>{\Centering\hangafter=1\hangindent=0em}X}
+\newcolumntype{R}{>{\RaggedLeft\hangafter=1\hangindent=0em}X}
+
+\ProvideDocumentCommand { \tabularxcolumn } { m }
+  { m { #1 } }  % 使表格内容垂向居中
+
+\RequirePackage
+{
+    longtable,
+    xltabular, % 长表格
+    booktabs,  % 三线表
+    makecell,
+    multirow,  % 跨行表格
+    diagbox    % 斜线表头
+}
+
+\RequirePackage { algorithm2e }     % 算法代码
+\ExplSyntaxOn
+\tl_set:Nn \algorithmcfname { 算法 }
+\SetAlCapSty {}
+\SetAlCapFnt {}
+\box_new:N \l__whu_space_box
+\hbox_set:Nn \l__whu_space_box { \nobreakspace }
+\SetAlgoCaptionSeparator
+  { \hbox_to_wd:nn { 1 em - \box_wd:N \l__whu_space_box } {} }
+% 算法标题后会跟一个不间断空格 ~，这里将其宽度减掉
+\ExplSyntaxOff
 
 %%-------------------------代码高亮-----------------------------------
 
@@ -168,8 +235,6 @@
     % frame=single, % 边框
     % framesep=1em % 设置代码与边框的距离
 }
-
-
 
 %%----------------------- Theorems -----------------------------------
 \theoremstyle{plain}
@@ -277,7 +342,8 @@
 \captionsetup[table]{textfont=bf}  %%设置表格标题字体为黑体  。2016.06.07
 \renewcommand\figurename{\zihao{-4}\usefonttimes 图}
 
-\renewcommand\tablename{\bf\zihao{-4}\usefonttimes 表} 
+\renewcommand\tablename{\bf\zihao{-4}\usefonttimes 表}
+
 %%% ------ 目录设置 ------- %%%%
 \ctexset{contentsname={目\qquad 录}}
  
@@ -295,7 +361,7 @@
 
  
 %%===参考文献===%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{abbrv}        % 参考文献样式,  plain,unsrt,alpha,abbrv,chinesebst 等等
+\bibliographystyle{plainnat}        % 参考文献样式,  plain,unsrt,alpha,abbrv,chinesebst 等等
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{{figures/}}        % 图片文件路径

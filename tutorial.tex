@@ -3,7 +3,28 @@
 % \documentclass{WHUBachelor}% 选项 forprint: 交付打印时添加, 避免彩色链接字迹打印偏淡. 即使用下一行:
 \documentclass[forprint]{WHUBachelor}
 %---------------------这里添加所需的package--------------------------------
-\usepackage{url}
+\lstdefinelanguage{json}{
+    morestring=[d]",
+    stringstyle=\color{red!50!brown},
+    showstringspaces=false,
+    literate=
+     *{0}{{{\color{Gray}0}}}{1}
+      {1}{{{\color{Gray}1}}}{1}
+      {2}{{{\color{Gray}2}}}{1}
+      {3}{{{\color{Gray}3}}}{1}
+      {4}{{{\color{Gray}4}}}{1}
+      {5}{{{\color{Gray}5}}}{1}
+      {6}{{{\color{Gray}6}}}{1}
+      {7}{{{\color{Gray}7}}}{1}
+      {8}{{{\color{Gray}8}}}{1}
+      {9}{{{\color{Gray}9}}}{1}
+      {:}{{{\color{Purple}{:}}}}{1}
+      {,}{{{\color{Purple}{,}}}}{1}
+      {\{}{{{\color{BlueGreen}{\{}}}}{1}
+      {\}}{{{\color{BlueGreen}{\}}}}}{1}
+      {[}{{{\color{BlueGreen}{[}}}}{1}
+      {]}{{{\color{BlueGreen}{]}}}}{1},
+}
 
 %--------------------------------------------------------------------------
 \makeatletter
@@ -58,6 +79,9 @@
 \include{pages/chapter2.tex}
 \include{pages/chapter3.tex}
 \include{pages/chapter4.tex}
+\include{pages/chapter5.tex}
+\include{pages/chapter6.tex}
+\include{pages/chapter7.tex}
 
 
 %此处结束正文-------------------------------------------------------------------------------------------------
@@ -69,24 +93,8 @@
 
 %%%=== 参考文献 ========%%%
 \cleardoublepage\phantomsection
-\addcontentsline{toc}{chapter}{参考文献}
-\renewcommand{\baselinestretch}{1.6}
-\begin{thebibliography}{00}
 
-  \bibitem{mapreduce} Dean J, Ghemawat S. MapReduce: Simplified Data Processing on Large Clusters[A].Eric A. Brewer, Peter Chen.6th Symposium on Operating Systems Design and Implementation(OSDI 2004)[C], San Francisco, California, USA: {USENIX} Association, 2004:137--150.
-
-  \bibitem{r1} 作者. 文章题目 [J].  期刊名, 出版年份，卷号(期数): 起止页码.
-
-  \bibitem{r2} 作者. 书名 [M]. 版次. 出版地：出版单位，出版年份：起止页码.
-
-  \bibitem{r3} 邓建松等, 《\LaTeXe~科技排版指南》, 科学出版社.
-
-  \bibitem{r4} 吴凌云, 《CTeX~FAQ (常见问题集)》, \textit{Version~0.4}, June 21, 2004.
-
-  \bibitem{r5} Herbert Vo\ss, Mathmode, \url{http://www.tex.ac.uk/ctan/info/math/voss/mathmode/Mathmode.pdf}.
-
-
-\end{thebibliography}
+\bibliography{ref/refs.bib, ref/thu.bib}
 
 
 

@@ -1,36 +1,15 @@
-\chapter{先说重要的}
+\chapter{模板使用教程}
  
  \section{具体使用步骤}
 
  \begin{description}
-
-  \item[Step 1]  进入 includefile 文件夹,  打开 frontmatter.tex, backmatter.tex 这两个文档,
-        分别填写 (1) 中文摘要, (2) 实验结论.
-
-  \item[Step 2]  打开主文档 Experiment-template.tex, 填写题目、学生姓名等等信息, 书写正文.
-
-  \item[Step 3]  使用 XeLaTeX 编译. 具体见 \ref{sec-compile} 节.
-
-
+  \item[Step 1]  打开主文档 main.tex，填写题目、学生姓名等等信息，书写正文。
+  \item[Step 2]  进入 pages 文件夹，打开 frontmatter.tex，backmatter.tex 这两个文档,
+  分别填写 (1) 中文摘要，(2) 实验结论。并根据实际情况创建chapter tex文件书写正文。
+  \item[Step 3]  打开主文档，在正文部分修改include的文件，注意此时不需要tex后缀名。
+  \item[Step 4]  导入bib参考文献，在文档中引用。 
+  \item[Step 5]  使用 XeLaTeX 编译。
 \end{description}
-
-
-
-\section{编译的方法}\label{sec-compile}
-
-默认使用 XeLaTeX 编译, 直接生成~pdf 文件.
-
-若另存为新文档, 请确保文档保存类型为 \verb|:UTF-8|. 当然目前很多编辑器默认文字编码为 UTF-8.
-WinEdt 9.0 之后的版本都是默认保存为 UTF-8 的.
-
-
-%使用~XeLaTeX 编译, 直接生成~pdf 文件.
-%pdf 文件也可以反向搜索! \CJKunderwave{双击~pdf 中要修改的文字, 将直接跳转到源文件中相应位置.}
-%
-
-
-
-
 
 \section{文档类型选择}
 
@@ -55,21 +34,18 @@ WinEdt 9.0 之后的版本都是默认保存为 UTF-8 的.
 
 \begin{enumerate}[i)] 
 %  \item  论文要求\colorbox{yellow}{单面打印}.
-  \item  关于文档选项 forprint: 交付打印时, 建议加上选项 forprint, 以消除链接文字之彩色, 避免打印字迹偏淡.
-  \item  打印时留意不要缩小页面或居中. 即页面放缩方式应该是``无''(Adobe Reader XI 是选择``实际大小'').
-           有可能页面放缩方式默认为``适合可打印区域'', 会导致打印为原页面大小的 $97\%$.
-           文字不要居中打印, 是因为考虑到装订, 左侧的空白留得稍多一点(模板已作预留).
-  \item  遗留问题: 封面需要打印部重新制作.  校内打印部通常有现成的模板.
-           我们自己做的封面, 打印部不一定好用.
+  \item  关于文档选项 forprint：交付打印时，建议加上选项 forprint，以消除链接文字之彩色，避免打印字迹偏淡。
+  \item  打印时留意不要缩小页面或居中。即页面放缩方式应该是“无”(Adobe Reader XI 是选择“实际大小”)。
+           有可能页面放缩方式默认为“适合可打印区域”，会导致打印为原页面大小的 $97\%$。
+           文字不要居中打印，是因为考虑到装订，左侧的空白留得稍多一点(模板已作预留)。
+  \item  遗留问题：封面需要打印部重新制作。校内打印部通常有现成的模板。
 \end{enumerate}
-%如果不是彩色打印机, 请在打印时, 选择将彩色打印为黑白, 否则彩色文字打出的墨迹会偏淡.
+%如果不是彩色打印机，请在打印时，选择将彩色打印为黑白，否则彩色文字打出的墨迹会偏淡.
 
 \textbf{问}: {\kaishu 生成 PDF 文件时，不能去掉目录和文章的引用彩色方框，请问怎么解决？}
 
-\textbf{答}: {\kaishu 方框表示超级链接, 只在电脑上看得见. 实际打印时, 是没有的. 另外, 文档类型加选项 forprint 之后, 这些框框会隐掉的. }
+\textbf{答}: {\kaishu 方框表示超级链接，只在电脑上看得见. 实际打印时，是没有的. 另外，文档类型加选项 forprint 之后，这些框框会隐掉的。}
 
  \vfill
 
-本文档下载更新地址: \url{https://github.com/xiaoxinganling/WHUExperiment}. 使用之前, 请移步查看是否有更新.
-
-问题反馈及建议, 请联系: mxzhou1998@gmail.com.
+本文档下载更新地址：\url{https://github.com/Nagico/WHUExperiment}. 使用之前，请移步查看是否有更新。
