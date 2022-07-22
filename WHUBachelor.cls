@@ -72,19 +72,18 @@
     \vspace*{0.9cm} %插入空白
     {\songti \zihao{1} \makebox[9cm][s]{武汉大学计算机学院}}\\
 	\vspace{0.8cm}
-	{\songti \zihao{1} \makebox[9cm][s]{本科生课程设计报告}}\\
+	{\songti \zihao{1} \makebox[9cm][s]{本科生课程实验报告}}\\
     \vspace{2.0cm}
     {\heiti \zihao{2} \@title \par}%
 %    \vspace{4.2cm}
      \vfill\vfill\vfill
     {\songti\zihao{-3}
     \begin{tabular}{cp{3cm}c}
-      \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{专\hfill 业\hfill 名\hfill 称:}} & { {}\raisebox{-3ex}[0pt]{\the\Cmajor}\hfill{}} & \\[3ex]
-      \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{课\hfill 程\hfill 名\hfill 称:}} & {  {}\raisebox{-3ex}[0pt]{\the\Ccoursename}\hfill{}} & \\[3ex]
-	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师\hfill 一:}} & { {}\raisebox{-3ex}[0pt]{\the\Csupervisor}\hfill{}} & \\[3ex]
-	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师\hfill 二:}} & { {}\raisebox{-3ex}[0pt]{\the\CsupervisorAnother}\hfill{}} & \\[3ex]
-	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 学\hfill 号:}} & { {}\raisebox{-3ex}[0pt]{\the\CstudentNum}\hfill{}} & \\[3ex]
-	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 姓\hfill 名:}} & { {}\raisebox{-3ex}[0pt]{\@author}\hfill{}} & \\[3ex]
+      \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{专\hfill 业\hfill 名\hfill 称\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\the\Cmajor}\hfill{}} & \\[3ex]
+      \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{课\hfill 程\hfill 名\hfill 称\hfill:\hfill}} & {  {}\raisebox{-3ex}[0pt]{\the\Ccoursename}\hfill{}} & \\[3ex]
+	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\the\Csupervisor}\hfill{}} & \\[3ex]
+	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 学\hfill 号\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\the\CstudentNum}\hfill{}} & \\[3ex]
+	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 姓\hfill 名\hfill:\hfill}} & { {}\raisebox{-3ex}[0pt]{\@author}\hfill{}} & \\[3ex]
      \end{tabular}
     }
     \par
@@ -131,13 +130,44 @@
 	
 %%------------------------常用宏包-----------------------------------
 \RequirePackage{amsmath,amssymb}
+\RequirePackage{float}
+\RequirePackage{subcaption}
+\RequirePackage{extarrows}
+\RequirePackage{booktabs}
+\RequirePackage{supertabular}
+\RequirePackage{multirow}
 \RequirePackage[amsmath,thmmarks]{ntheorem}% AMSLaTeX宏包.
 \RequirePackage{graphicx}                 % 图形
-\RequirePackage{color,xcolor}             %支持彩色
+\RequirePackage{color}             %支持彩色
+\RequirePackage{listings}
 %\RequirePackage{mathrsfs}   % 不同于\mathcal or \mathfrak 之类的英文花体字体
 \RequirePackage{url}
 \RequirePackage{enumerate}
 \RequirePackage{CJKfntef}
+\usepackage[dvipsnames]{xcolor}
+
+%%-------------------------代码高亮-----------------------------------
+
+\lstset{
+	basicstyle=\linespread{1.0}\ttfamily, % 设置字体族
+	breaklines=true, % 自动换行
+	keywordstyle=\bfseries\color{blue!70!black}, % 设置关键字为粗体，颜色为 NavyBlue
+	morekeywords={}, % 设置更多的关键字，用逗号分隔
+	emph={self}, % 指定强调词，如果有多个，用逗号隔开
+    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+    commentstyle=\itshape\color{PineGreen!90!black}, % 设置注释样式，斜体，浅灰色
+    stringstyle=\bfseries\color{red!90!black}, % 设置字符串样式
+    backgroundcolor = \color{yellow!10},
+    columns=flexible,
+    numbers=left, % 显示行号在左边
+    numbersep=2em, % 设置行号的具体位置
+    numberstyle=\footnotesize, % 缩小行号
+    % frame=single, % 边框
+    % framesep=1em % 设置代码与边框的距离
+}
+
+
+
 %%----------------------- Theorems -----------------------------------
 \theoremstyle{plain}
 \theoremheaderfont{\heiti}
