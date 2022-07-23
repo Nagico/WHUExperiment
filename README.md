@@ -1,24 +1,9 @@
-##### À´Ô´ËµÃ÷
-- Ä£°åÓÉ»ÆÕý»ªÀÏÊ¦Ìá¹©µÄÎäºº´óÑ§±¾¿ÆÉú±ÏÒµÂÛÎÄLaTeXÄ£°åÐÞ¸Ä¶ø³É£¬±ÏÒµÂÛÎÄÄ£°åµÄÀ´Ô´ÔÚ[»ÆÕý»ªµÄ½ÌÑ§ÐÅÏ¢Ò³Ãæ](http://aff.whu.edu.cn/huangzh/).
+### æ¥æºè¯´æ˜Ž
+- æ¨¡æ¿ç”±é»„æ­£åŽè€å¸ˆæä¾›çš„æ­¦æ±‰å¤§å­¦æœ¬ç§‘ç”Ÿæ¯•ä¸šè®ºæ–‡LaTeXæ¨¡æ¿ä¿®æ”¹è€Œæˆï¼Œæ¯•ä¸šè®ºæ–‡æ¨¡æ¿çš„æ¥æºåœ¨[é»„æ­£åŽçš„æ•™å­¦ä¿¡æ¯é¡µé¢](http://aff.whu.edu.cn/huangzh/)
 
-##### Ê¹ÓÃËµÃ÷
-- °²×° TeX Live Èí¼þ»·¾³.
+### ä½¿ç”¨è¯´æ˜Ž
 
-- Ê¹ÓÃ XeLaTeX ±àÒë.
+è¿›å…¥main.texä¿®æ”¹ç›¸å…³å†…å®¹ï¼Œåœ¨pagesä¸­ä¹¦å†™æ­£æ–‡
 
-- Ö÷ÎÄµµÊÇ Experiment-template.tex .
-
-- Í¼Æ¬Çë·ÅÔÚ figures ÎÄ¼þ¼Ð.
-
-- includefile ´æ·ÅµÄÊÇÕªÒª¡¢Ö£ÖØÉùÃ÷µÈÕýÎÄÒÔÍâµÄ²¿·Ö¡£
-  ÇëÖ±½ÓÔÚÕâÐ©ÎÄ¼þÖÐÌîÐ´Ïà¹ØÄÚÈÝ,²»Òª¸Ä±äÎÄ¼þµÄÎ»ÖÃ.
-
-- ¸ü¶àÊ¹ÓÃËµÃ÷Çë²Î¿´ Ô´ÎÄ¼þ Experiment-template.tex ÀïµÄ×¢ÊÍËµÃ÷.
-
-##### ÆäËû
-
-- ¸ü¼ÓÏêÏ¸µÄ½éÉÜÇë²Î¿´ [QuickStart](https://xiaoxinganling.github.io/2019/06/26/WHU-LaTeX/#start)
-- ³ÖÐø¸üÐÂÖÐ......
-- ÈçÓÐÒÉÎÊ£¬ÇëÁªÏµ mxzhou1998@gmail.com
-
+è¯¦ç»†ä½¿ç”¨è¯´æ˜Žè¯·ç¼–è¯‘main.texåŽæˆ–è€…åœ¨å³ä¾§releaseå¤„ä¸‹è½½pdfé˜…è¯»
 
