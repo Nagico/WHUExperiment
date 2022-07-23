@@ -1,10 +1,12 @@
-\chapter{引用与链接}
+\chapter{引用与链接}\label{cha:ref}
 
 \section{引用文中小节}\label{sec:ref}
 如引用小节~\ref{sec:ref}
 
 \section{引用参考文献}
 这是一个参考文献引用的范例：“\cite{江泽民1989能源发展趋势及主要节能措施}提出……”。还可以引用多个文献：“\cite{kuhn2004man,江泽民2008新时期我国信息技术产业的发展,江泽民1989能源发展趋势及主要节能措施}提出……”。
+
+参考文献根据学校推荐的格式采用abbrv样式的参考文献引用，可以在main.tex中找到bibliographystyle进行修改。以下的引用方式在abbrv时会产生错误，可修改为plainnat即可正常编译。
 
 不同的引用方法：“\citet{江泽民1989能源发展趋势及主要节能措施}”“\citep{江泽民2008新时期我国信息技术产业的发展}”更多引用命令请参阅 natbib 文档或 biblatex 文档。\nocite{*}
 

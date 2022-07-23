@@ -1,5 +1,6 @@
 \chapter{公式插图表格}
-\section{公式的使用}
+
+\section{公式的使用}\label{sec:equation}
 在文中引用公式可以这么写：\(a^2 + b^2 = c^2\)。这是勾股定理，它还可以表示为 \(c = \sqrt{a^2 + b^2}\)。还可以让公式单独一段并且加上编号：
 \begin{equation}
   \sin^2{\theta} + \cos^2{\theta} = 1 \label{eq:pingfanghe}
@@ -33,7 +34,7 @@
 
 模板使用了 unicode-math 包更改数学字体。所以在使用数学字体时，尽量使用 unicode-math 包提供的 \verb|\sym| 接口，详情请阅读 unicode-math 文档。
 
-\section{插图的使用}
+\section{插图的使用}\label{sec:figure}
 
 
 \LaTeX{} 环境下可以使用常见的图片格式：JPEG、PNG、PDF 等。当然也可以使用 \LaTeX{} 直接绘制矢量图形，可以参考 pgf/ti\emph{k}z 等包中的相关内容。需要注意的是，无论采用什么方式绘制图形，首先考虑的是图片的清晰程度以及图片的可理解性，过于不清晰的图片将可能会浪费很多时间。
@@ -70,7 +71,8 @@
   \label{fig:multi-image}
 \end{figure}
 
-\section{表格的使用}
+\section{表格的使用}\label{sec:table}
+
 表格的输入可能会比较麻烦，可以使用在线的工具，如 \href{https://www.tablesgenerator.com/}{Tables Generator} 能便捷地创建表格，也可以使用离线的工具，如 \href{https://ctan.org/pkg/excel2latex}{Excel2LaTeX} 支持从 Excel 表格转换成 \LaTeX{} 表格。\href{https://en.wikibooks.org/wiki/LaTeX/Tables}{LaTeX/Tables} 上及 \href{https://www.tug.org/pracjourn/2007-1/mori/mori.pdf}{Tables in LaTeX} 也有更多的示例能够参考。
 
 \subsection{普通表格}
@@ -172,7 +174,7 @@
   1 & 0 & 5 & 1 & 2 & 3 & 4 & 5 & 6 \\
 \end{xltabular}
 
-\section{列表的使用}
+\section{列表的使用}\label{sec:list}
 下面演示了创建有序及无序列表，如需其它样式，\href{https://www.latex-tutorial.com/tutorials/lists/}{LaTeX Lists} 上有更多的示例。
 
 \subsection{有序列表}

@@ -217,6 +217,8 @@
 \ExplSyntaxOff
 
 %%-------------------------代码高亮-----------------------------------
+\renewcommand{\lstlistlistingname}{代码汇总} % 代码高亮caption的名称
+\renewcommand{\lstlistingname}{代码}
 
 \lstset{
 	basicstyle=\linespread{1.0}\ttfamily, % 设置字体族
@@ -224,16 +226,16 @@
 	keywordstyle=\bfseries\color{blue!70!black}, % 设置关键字为粗体，颜色为 NavyBlue
 	morekeywords={}, % 设置更多的关键字，用逗号分隔
 	emph={self}, % 指定强调词，如果有多个，用逗号隔开
-    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
-    commentstyle=\itshape\color{PineGreen!90!black}, % 设置注释样式，斜体，浅灰色
-    stringstyle=\bfseries\color{red!90!black}, % 设置字符串样式
-    backgroundcolor = \color{yellow!10},
-    columns=flexible,
-    numbers=left, % 显示行号在左边
-    numbersep=2em, % 设置行号的具体位置
-    numberstyle=\footnotesize, % 缩小行号
-    % frame=single, % 边框
-    % framesep=1em % 设置代码与边框的距离
+  emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+  commentstyle=\itshape\color{PineGreen!90!black}, % 设置注释样式，斜体，浅灰色
+  stringstyle=\bfseries\color{red!90!black}, % 设置字符串样式
+  backgroundcolor = \color{yellow!10},
+  columns=flexible,
+  numbers=left, % 显示行号在左边
+  numbersep=2em, % 设置行号的具体位置
+  numberstyle=\footnotesize, % 缩小行号
+  % frame=single, % 边框
+  % framesep=1em % 设置代码与边框的距离
 }
 
 %%----------------------- Theorems -----------------------------------
@@ -360,9 +362,7 @@
 \renewcommand\cftaftertoctitle{\hfill}
 
  
-%%===参考文献===%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{plainnat}        % 参考文献样式,  plain,unsrt,alpha,abbrv,chinesebst 等等
-%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{{figures/}}        % 图片文件路径
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,5 +1,26 @@
 \chapter{模板使用教程}
  
+\section{Readme}
+
+模板文件的结构, 如下表所示:
+ \begin{table}[ht]\centering
+\begin{tabular}{r|r|l}
+	\hline\hline
+	\multicolumn{2}{l|}{main.tex }       & 主文档. 在其中填写首页信息、正文引用、参考文献引用。             \\ \hline
+                                    & chapter$x$.tex & 第$x$章节正文。             \\ \cline{2-3}
+    \raisebox{1em}{pages 文件夹}   & frontmatter.tex & 郑重声明、摘要。               \\ \cline{2-3}
+	 &  backmatter.tex & 实验结论.                       \\ \hline
+	\multicolumn{2}{l|}{figures 文件夹}                  & 存放图片文件。                   \\ \hline
+    \multicolumn{2}{l|}{ref 文件夹}                  & 存放Bib参考文献文件。                   \\ \hline
+	\multicolumn{2}{l|}{WHUBachelor.cls }             & 定义文档格式的 class file。不可删除。 \\ \hline\hline
+\end{tabular}
+\end{table}
+
+无需也不要改变、移动上述文档的位置。
+
+如果不习惯用~\verb|\include{ }|~的方式加入“子文档”，当然可以把它们合并在主文档，成为一个文档。
+({\kaishu 但是这样并不会给我们带来方便。})
+
  \section{具体使用步骤}
 
  \begin{description}
@@ -11,40 +32,12 @@
   \item[Step 5]  使用 XeLaTeX 编译。
 \end{description}
 
-\section{文档类型选择}
+\section{其他}
 
-{\textbf{\zihao{-2}{本小节是毕业论文打印介绍，实验报告可以略过}}}
+自此，~\LaTeX~安装与模板使用说明已介绍完毕。接下来的章节会以本模板支持的命令为例，讲解~\LaTeX~的使用方法。请将PDF配合Tex源码一同学习，可自行修改相关命令，查看效果。
 
-文档类型有 2 种情形:
+其中 Chapter \ref{cha:latex-brief-intro}将简要的介绍~\LaTeX~使用方法，包括多级标题、字体样式、字号调节、定理与公式、图片与表格的简单使用。初次学习可以参考此章节。
 
-\begin{table}[ht]\centering
-\begin{tabular}{ll}
-\hline
-   \verb|\documentclass{WHUBachelor}|                     &  毕业论文 \\
-   \verb|\documentclass[forprint]{WHUBachelor}|        &  毕业论文打印版 \\
-\hline
-\end{tabular}
-\end{table}
-相关解释见下节.
-
-
-\section{打印的问题}
-
-{\textbf{\zihao{-2}{本小节是毕业论文打印介绍，实验报告可以略过}}}
-
-\begin{enumerate}[i)] 
-%  \item  论文要求\colorbox{yellow}{单面打印}.
-  \item  关于文档选项 forprint：交付打印时，建议加上选项 forprint，以消除链接文字之彩色，避免打印字迹偏淡。
-  \item  打印时留意不要缩小页面或居中。即页面放缩方式应该是“无”(Adobe Reader XI 是选择“实际大小”)。
-           有可能页面放缩方式默认为“适合可打印区域”，会导致打印为原页面大小的 $97\%$。
-           文字不要居中打印，是因为考虑到装订，左侧的空白留得稍多一点(模板已作预留)。
-  \item  遗留问题：封面需要打印部重新制作。校内打印部通常有现成的模板。
-\end{enumerate}
-%如果不是彩色打印机，请在打印时，选择将彩色打印为黑白，否则彩色文字打出的墨迹会偏淡.
-
-\textbf{问}: {\kaishu 生成 PDF 文件时，不能去掉目录和文章的引用彩色方框，请问怎么解决？}
-
-\textbf{答}: {\kaishu 方框表示超级链接，只在电脑上看得见. 实际打印时，是没有的. 另外，文档类型加选项 forprint 之后，这些框框会隐掉的。}
 
  \vfill
 

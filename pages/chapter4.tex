@@ -1,28 +1,166 @@
-\chapter{杂七杂八的话}
+\chapter{简要~\LaTeX~使用说明}\label{cha:latex-brief-intro}
 
-\section{Readme}
+\section{控制单位}
 
-模板文件的结构, 如下表所示:
- \begin{table}[ht]\centering
-\begin{tabular}{r|r|l}
-	\hline\hline
-	\multicolumn{2}{l|}{main.tex }       & 主文档. 在其中填写正文.             \\ \hline
-	                                & frontmatter.tex & 郑重声明、摘要.               \\ \cline{2-3}
-	\raisebox{1em}{pages 文件夹} &  backmatter.tex & 实验结论.                       \\ \hline
-	\multicolumn{2}{l|}{figures 文件夹}                  & 存放图片文件.                   \\ \hline
-	\multicolumn{2}{l|}{WHUBachelor.cls }             & 定义文档格式的 class file. 不可删除. \\ \hline\hline
-\end{tabular}
-\end{table}
+LaTeX里可使用的单位包括：
+\begin{itemize}
+    \item 毫米\ \verb|1mm|
+    \item 厘米\ \verb|1cm|
+    \item 英寸\ \verb|1in|
+    \item 像素\ \verb|1pt|
+    \item 基础文本尺寸的宽度\ \verb|1em|
+    \item 基础文本尺寸的高度\ \verb|1ex|
+    \item 字符宽度或行宽度的百分比值\ \verb|0.2\textwidth|
+    \item 字符高度或行高度的百分比值\ \verb|0.2\textheight|
+\end{itemize}
 
-无需也不要改变、移动上述文档的位置.
+\section{特殊符号}
 
-如果不习惯用~\verb|\include{ }|~的方式加入``子文档'', 当然可以把它们合并在主文档, 成为一个文档.
-({\kaishu 但是这样并不会给我们带来方便.})
+~\LaTeX~中有些符号无法正常显示，比如：\# \quad \% \quad \& \quad \{ \quad \} \quad \~{} \quad \_{} \quad \textbackslash \quad \backslash \quad \^{} \quad \$ 等控制符号，错误的在代码中使用会产生Error报错，并且很难发现错误原因。同时输入“\backslash 命令”时需注意，若命令结束后紧跟正文内容，需要在结尾加入空格，即\verb|a \quad b|。
 
+发现Error报错后，请对刚才添加的内容进行错误排查，重点观察报错位置附近的特殊符号、插入图片的路径、代码 \} 大括号是否完整。若无法判断错误位置，可以将添加部分临时删除，一点一点的加入并编译，直至出现Error报错，缩小错误代码的位置。
 
+\subsection{空白符号}
 
+\paragraph*{~\LaTeX~空白的原则：}
 
- \section{字体调节}
+\begin{itemize}
+    \item 空行分段，多个空行等同为1个
+    \item 段落首行缩进是自动的，绝对不能使用空格代替
+    \item 英文中多个空格处理为1个空格，中文中空格将被忽略
+    \item 汉字与其他字符的间距会自动有XeLaTeX处理
+    \item 禁止使用中文全角空格
+\end{itemize}
+
+\paragraph*{空格的输入方法：}
+
+\begin{itemize}
+    \item 当前字体的一个宽度，即1em\\
+    \verb|a \quad b| \quad a \quad b
+    \item 2em空格\\
+    \verb|a \qquad b| \quad a \qquad b
+    \item 1/6em空格\\
+    \verb|a \, b| \qquad \qquad  a\,b \\
+    \verb|a \thinspace b| a \thinspace b
+    \item 0.5em空格\\
+    \verb|a \enspace b| \quad a \enspace b
+    \item 空格\\
+    \verb|a \ b| \quad a \ b
+    \item 硬空格（不能分割\\
+    \verb|a~b| \quad a~b
+    \item 指定宽度的空白 (1pc=12pt=4.218mm)\\
+    \verb|a \kern 1pc b| \ \qquad a\kern 1pc b\\
+    \verb|a \kern -1em b| \qquad a\kern -1em b\\
+    \verb|a \hskip 1em b| \qquad a\hskip 1em b\\
+    \verb|a \hspace{35pt}b| \quad a\hspace{35pt}b
+    \item 占位宽度 xyz的占位宽度\\
+    \verb|a \hphantom{xyz}b| \quad a\hphantom{xyz}b
+    \item 弹性宽度，占满横向空间\\
+    \verb|a \hfill b| \quad a\hfill b
+\end{itemize}
+ 
+\subsection{文本控制}
+
+\begin{itemize}
+    \item 分段(有段首缩进) \\
+    \verb|para1|\\ \hspace*{\fill} \\\verb|para2|
+
+    para1
+
+    para2
+
+    \item 文字之间直接换行(无缩进)\\
+    \verb|para1\\line2|
+
+    para1\\line2
+
+    \item 添加空白行(会出现Warning) \\
+    \verb|line1 \\ ~\\ line2| \\
+    line1 \\ ~\\ line2
+
+    \item 这个命令也可以加空行(无Warning)，一般用在文字之间加空行 \\
+    \verb|line1 \\ \hspace*{\fill} \\ line2| \\
+    line1\\ \hspace*{\fill} \\line2
+
+    \item 控制空行高度 \\
+    \verb|line1 \\ \vspace{5ex} \\ line2| \\
+    line1 \\ \vspace{5ex} \\ line2
+
+    \item 换页(新页包含段首缩进) \\
+    \verb|line1 \newpage para2| \\
+    line1 \newpage para2
+\end{itemize}
+
+ \subsection{\LaTeX 控制符}
+ \begin{itemize}
+    \item \verb|\#| \qquad \#
+    \item \verb|\$| \qquad \$
+    \item \verb|\%| \qquad \%
+    \item \verb|\{| \qquad \{
+    \item \verb|\}| \qquad \}
+    \item \verb|\&| \qquad \&
+    \item \verb|\~{}| \quad \~{}
+    \item \verb|\_{}| \quad \_{}
+    \item \verb|\^{}| \quad \^{}
+    \item \verb|\textbackslash| \qquad \textbackslash
+ \end{itemize}
+
+ \subsection{排版符号}
+ \S \P \dag \ddag \copyright \pounds
+
+ \subsection{\TeX 标志符号}
+ \LaTeX \TeX{}  \LaTeXe{}
+
+ \subsection{引号}
+
+ \paragraph*{半角输入模式：}
+
+ \begin{itemize}
+    \item \verb|`| \ \quad 左单引号：`        %(键盘第二行第一个)  
+    \item \verb|'|  \ \quad 右单引号：' 
+    \item \verb|``| \quad 左双引号：`` 
+    \item \verb|''| \quad 右双引号：'' 
+ \end{itemize}
+
+ \paragraph*{全角输入模式：}
+
+\begin{itemize}
+    \item  ‘  \ \quad 左单引号：‘ 
+    \item  ’  \ \quad 右单引号：’ 
+    \item  \verb|“| \ \quad 左双引号：“ 
+    \item  \verb|”| \ \quad 右双引号：” 
+\end{itemize}
+
+ \subsection{连字符}
+
+\begin{itemize}
+    \item \verb|-| \ \ \ \quad -
+    \item \verb|--| \ \ \quad --
+    \item \verb|---| \quad ---
+\end{itemize}
+
+\section{各节一级标题 section}
+
+\textbf{注意：命令不带*会显示编号，带*则不进行编号}
+
+\subsection{各节二级标题 subsection}
+你是内容
+
+\subsection*{无编号二级标题 subsection*}
+content
+
+\subsubsection{各节三级标题 subsubsection}
+他是内容
+
+\paragraph{四级标题 paragraph}
+内容内容
+
+\subparagraph{五级标题 subparagraph}
+内容内容
+
+\section{字体样式}
+
+\subsection{字体调节}
 
 \begin{tabular}{ll}
 	\verb|\songti|   & {\songti 宋体}   \\
@@ -32,7 +170,7 @@
 \end{tabular}
 
 
-\section{字号调节}
+\subsection{字号调节}
 字号命令: \verb|\zihao| \index{zihao}
 
 \begin{tabular}{ll}
@@ -54,54 +192,63 @@
 \verb|\zihao{8} |&\zihao{8}  八号字 English \\
 \end{tabular}
 
-\section{已加入的常用宏包}
+\subsection{字体样式}
+
+注意：部分字体不支持会出现Warning警告，请根据实际情况进行使用。
+
+宋体\quad \textbf{粗体}\quad \textit{斜体}\quad \textbf{\textit{粗斜体}}。
+
+{\heiti 黑体\quad \textbf{粗体}\quad \textit{斜体}\quad \textbf{\textit{粗斜体}}}。
+
+{\fangsong 仿宋\quad \textbf{粗体}\quad \textit{斜体}\quad \textbf{\textit{粗斜体}}}。
+
+{\kaishu 楷书\quad \textbf{粗体}\quad \textit{斜体}\quad \textbf{\textit{粗斜体}}}。
+
+Serif\quad \textit{Italic}\quad \textbf{Bold}\quad \textbf{\textit{BoldItalic}}
+
+{\sffamily Sans\quad \textit{Italic}\quad \textbf{Bold}\quad \textbf{\textit{BoldItalic}}}
+
+{\ttfamily Mono\quad \textit{Italic}\quad \textbf{Bold}\quad \textbf{\textit{BoldItalic}}}
+
+
+\section{常用命令}
 
 \begin{description}
-%  \item[amsmath,amssymb]
-  \item[cite]  参考文献引用, 得到形如 [3-7] 的样式.
-  \item[color,xcolor]  支持彩色.
-  \item[enumerate]  方便自由选择 enumerate 环境的编号方式. 比如
+  \item[cite]  参考文献引用, 得到形如 [3-7] 的样式。
+  \item[color,xcolor]  支持彩色。
+  \item[enumerate]  方便自由选择 enumerate 环境的编号方式。\\
+  \textbf{详细说明请见\ref{sec:list}节。} \\
+  比如
 
-  \verb|\begin{enumerate}[(a)]| 得到形如 (a), (b), (c) 的编号.
+  \verb|\begin{enumerate}[(a)]| 得到形如 (a), (b), (c) 的编号。
 
 
-  \verb|\begin{enumerate}[i)]| 得到形如 i), ii), iii) 的编号.
+  \verb|\begin{enumerate}[i)]| 得到形如 i), ii), iii) 的编号。
 
-  \verb|\begin{enumerate}[\hspace{1cm}(1)]| \verb|\hspace|命令用于调整距离
+  \verb|\begin{enumerate}[\hspace{1cm}(1)]| \verb|\hspace|命令用于调整距离。
 
 \end{description}
 
-另外要说明的是,  itemize, enumerate, description 这三种 list 环境, 已经调节了其间距和缩进,
-以符合中文书写的习惯.
-
-\section{标点符号的问题}
-
-建议使用半角的标点符号, 后边再键入一个空格. 特别是在英文书写中要注意此问题!
-
-双引号是由两个左单引号、两个右单引号构成的: \verb|``  ''|. 左单引号在键盘上数字~1 的左边.
-
-但是, 无论您偏向于全角或半角, 强烈建议您使用实心的句号, 只要您书写的是自然科学的文章.
-原因可能是因为, 比如使用全角句号的句子结尾处的``$x$。''容易误为数学式~$x_0$(\verb|$x_0$|)吧.
+另外要说明的是, itemize, enumerate, description 这三种 list 环境，已经调节了其间距和缩进，
+以符合中文书写的习惯。
 
 
+\section{引用}
 
-\section{引用的问题}
+\textbf{详细说明请见\ref{cha:ref}节。}
 
-
-\subsection{参考文献的引用}
-
-参考文献的引用, 用命令~\verb|\cite{ }|. 大括号内要填入的字串, 是自命名的文献条目名.
+参考文献的引用, 用命令~\verb|\cite{ }|。大括号内要填入的字串, 是自命名的文献条目名。参考文献建议使用文献管理工具进行管理，将所需文献导出bib格式，放于ref目录下，并在main.tex中引入。
 
 比如, 通常我们会说:
 
  {\kaishu
-关于此问题, 请参见文献 \cite{r2}. 作者某某还提到了某某概念\upcite{r1}.}
+关于此问题, 请参见文献 \cite{oclc2000about}. 作者某某还提到了某某概念\upcite{xiaoyu2001chubanye}.}
 
 
 上文使用的源文件为:
 
  {\kaishu
-关于此问题, 请参见文献~\verb|\cite{r2}|. 作者某某还提到了某某概念~\verb|\upcite{r1}|.
+关于此问题, 请参见文献~\verb|\cite{oclc2000about}|. 作者某某还提到了某某概念~\verb|\upcite{xiaoyu2001chubanye}|.
 }
 
 其中~\verb|\upcite| 是自定义命令, 使文献引用呈现为\CJKunderdot{上标形式}.
@@ -112,70 +259,49 @@
 在正文中使用~\verb|\cite{r1,r3,r4,r5}| 的引用形式即可.
 或者, 连续引用的上标形式: 使用~\verb|\upcite{r1,r2,r3}|, 得到\upcite{r1,r2,r3}.
 
-\subsection{定理和公式的引用}
+\section{公式}
 
-\begin{theorem}[谁发现的]\label{th-abcd}
-最大的正整数是~$1$.
-\end{theorem}
+\textbf{详细说明请见\ref{sec:equation}节。}
 
-\begin{proof}
-要找到这个最大的正整数, 我们设最大的正整数为~$x$, 则~$x \geqslant 1$, 两边同时乘以~$x$, 得到
-\begin{equation}\label{eq-abc}
-x^2 \geqslant x.
-\end{equation}
-而~$x$ 是最大的正整数, 由~\eqref{eq-abc} 式得到
-\[
-x^2 = x.
-\]
-所以
-\begin{equation*}
+公式书写可使用在线编辑器选择合适的命令：\url{https://www.latexlive.com/}
+
+行内公式可使用\verb|$x=x^2$|，即$x=x^2$。
+
+行间公式可使用equation环境，此时一般不建议空一行，会让公式产生缩进不居中。
+\begin{equation}
 x = 1.
-\end{equation*}
-\end{proof}
-
-定理~\ref{th-abcd} 是一个重大的发现.
-
-%%%%----- 定义等环境的举例 --------
-\begin{definition}[整数]
- 正整数(例如 1, 2, 3)、负整数(例如 ${−1}$, $−2$, $−3$)与零(0)合起来统称为{\heiti 整数}.
-\end{definition}
-
-\begin{remark}
-  整数集合在数学上通常表示为 $\mathbf{Z}$ 或 $\mathbb{Z}$, 该记号源于德语单词 Zahlen(意为``数'')的首字母.
-\end{remark}
-
-\begin{proposition}
-任意两个整数相加、相减、相乘的结果, 仍然是整数.
-\end{proposition}
-
-\begin{example}
-  $1+2=3$.
-\end{example}
-
-\begin{corollary}
-   在整数集合内, 相加、相减、相乘运算是封闭的.
-\end{corollary}
+\end{equation}
 
 \section{图形与表格}
 
-支持对~eps, pdf, jpg 等等常见图形格式.
+\subsection{图形}
 
-再次\colorbox{red!45}{澄清一个误会}: \LaTeX{} 支持的图形格式绝非 eps 这一种. 无需特意把图片转化为 eps.
+\textbf{详细说明请见\ref{sec:figure}节。}
 
-用形如~\verb|\includegraphics[width=12cm]{Daisy.jpg}| 的命令可以纳入图片.
+支持对~eps, pdf, jpg 等等常见图形格式。
 
-如图~\ref{fig:1} 是一个纳入~jpg 图片的例子.
+再次\colorbox{red!45}{澄清一个误会}: \LaTeX{} 支持的图形格式绝非 eps 这一种。 无需特意把图片转化为 eps。
 
-\begin{figure}[ht]
+写实验报告时，像素图可直接使用jpg、png等常见格式，矢量图建议转换为pdf并进行适当裁剪后再插入。攥写学术论文时请根据具体刊物的要求插入相应图片。
+
+用形如~\verb|\includegraphics[width=12cm]{Daisy.jpg}| 的命令可以纳入图片。
+
+如图~\ref{fig:1} 是一个纳入~jpg 图片的例子，\verb|[htb]|控制其位置，需要强制将图片放于代码所代表的位置时可以使用\verb|[H]|。
+
+\begin{figure}[H]
 \centering
   \includegraphics[width=\textwidth]{Daisy.jpg}
   \caption{一个彩色 jpg 图片的例子}
   \label{fig:1}
 \end{figure}
 
-表格问题, 建议使用``三线表'', 如表 \ref{tab:1}.
+\subsection{表格}
 
-\begin{table}[ht]
+\textbf{详细说明请见\ref{sec:table}节。}
+
+表格问题, 建议使用“三线表”, 如表 \ref{tab:1}。
+
+\begin{table}[htb]
 \centering
 \caption{一般三线表}
 \label{tab:1}
