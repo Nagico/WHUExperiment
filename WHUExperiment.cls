@@ -1,13 +1,13 @@
 % !Mode:: "TeX:UTF-8"
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \RequirePackage{expl3 , xparse , l3keys2e}
-\ProvidesClass{WHUBachelor}[2022/07/22 Wuhan University Thesis Template for Experimental Report]
+\ProvidesClass{WHUExperiment}[2022/07/22 Wuhan University Thesis Template for Experimental Report]
 
 
 \ExplSyntaxOn
-\msg_new:nnn { whu-thesis } { 引擎不支持 }
+\msg_new:nnn { WHUExperiment } { 引擎不支持 }
   {
-    whu-thesis ~ 不支持 ~ #1 ~ 引擎。\\\\
+    WHUExperiment ~ 不支持 ~ #1 ~ 引擎。\\\\
 
     请使用 ~ XeLaTeX ~ 或 ~ LuaLaTeX ~ 进行编译！
   }
@@ -16,7 +16,7 @@
   {
     \sys_if_engine_luatex:F
       {
-        \msg_fatal:nnx { whu-thesis } { 引擎不支持 }
+        \msg_fatal:nnx { WHUExperiment } { 引擎不支持 }
           { \c_sys_engine_str }
       }
   }
@@ -360,8 +360,16 @@
 \renewcommand\cftsubsubsecpagefont{\zihao{-4}\usefonttimes}
 \renewcommand\cfttoctitlefont{\hfill\zihao{-2}\bf}
 \renewcommand\cftaftertoctitle{\hfill}
-
  
+%%% ------ 脚注设置 ------- %%%%
+\RequirePackage{ctex}
+\RequirePackage{pifont}
+\RequirePackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{{figures/}}        % 图片文件路径
