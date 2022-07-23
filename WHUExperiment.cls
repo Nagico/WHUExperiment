@@ -167,7 +167,7 @@
 \RequirePackage{supertabular}
 \RequirePackage{multirow}
 \RequirePackage[amsmath,thmmarks]{ntheorem}% AMSLaTeX宏包.
-
+\RequirePackage{gbt7714}
 \RequirePackage{graphicx}                 % 图形
 \RequirePackage { tikz, pgfplots } % 绘图
 \pgfplotsset { compat = 1.17 }

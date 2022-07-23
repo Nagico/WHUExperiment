@@ -237,7 +237,7 @@ Serif\quad \textit{Italic}\quad \textbf{Bold}\quad \textbf{\textit{BoldItalic}}
 
 \textbf{详细说明请见\ref{cha:ref}节。}
 
-参考文献的引用, 用命令~\verb|\cite{ }|。大括号内要填入的字串, 是自命名的文献条目名。参考文献建议使用文献管理工具进行管理，将所需文献导出bib格式，放于ref目录下，并在main.tex中引入。
+参考文献的引用, 用命令~\verb|\cite{ }|。大括号内要填入的字串, 是自命名的文献条目名。参考文献建议使用文献管理工具进行管理，将所需文献导出bib格式，放于ref目录下，并在main.tex中引入。论文最后的参考文献会根据bib文件与实际cite的项目自动生成。
 
 比如, 通常我们会说:
 
@@ -257,7 +257,9 @@ Serif\quad \textit{Italic}\quad \textbf{Bold}\quad \textbf{\textit{BoldItalic}}
 
 另外, 要得到形如~\cite{r1,r3,r4,r5} 的参考文献连续引用, 需要用到 cite 宏包(模板已经加入),
 在正文中使用~\verb|\cite{r1,r3,r4,r5}| 的引用形式即可.
-或者, 连续引用的上标形式: 使用~\verb|\upcite{r1,r2,r3}|, 得到\upcite{r1,r2,r3}.
+或者, 连续引用的上标形式: 使用~\verb|\upcite{r1,r2,r3}|, 得到\upcite{r1,r2,r3}。
+
+若使用VSCode，修改了参考文献后一定要重新编译bib后再使用xe编译，否则cite部分会出现?，找不到引用的参考文献，同时最后参考文献部分也不会显示该引用。
 
 \section{公式}
 

@@ -1,8 +1,8 @@
 % !Mode:: "TeX:UTF-8"
 %% 请使用 XeLaTeX 编译本文.
 \documentclass[forprint, AutoFakeBold, AutoFakeSlant ]{WHUExperiment}
-%---------------------这里添加所需的package--------------------------------
-\lstdefinelanguage{json}{
+%---------------------这里添加所需的命令--------------------------------
+\lstdefinelanguage{json}{ % 定义json代码高亮
     morestring=[d]",
     stringstyle=\color{red!50!brown},
     showstringspaces=false,
@@ -39,12 +39,12 @@
 \author{} % 学生姓名
 \Csupervisor{XXXX \quad 教授} %指导教师一姓名、职称
 
-% 默认不显示指导教师二，需要时可在WHUBachelor.cls 80+行处将"关闭第二指导教师显示"下一行的注释解除
+% 默认不显示指导教师二，需要时可在WHUExperiment.cls 80+行处将"关闭第二指导教师显示"下一行的注释解除
 \CsupervisorAnother{无} %指导教师二姓名、职称 
 
 \CstudentNum{XXXX} %学号
 \Cmajor{XXXX} % 专业名称
-\date{二〇一九年六月} % 日期
+\date{二〇二二年七月} % 日期
 
 %-----------------------------------------------------------------------------
 
@@ -93,7 +93,7 @@
 %%%=== 参考文献 ========%%%
 \cleardoublepage\phantomsection
 
-\bibliographystyle{abbrv}        % 参考文献样式,  plain,unsrt,alpha,abbrv,chinesebst 等等
+\bibliographystyle{gbt7714-numerical}        % 参考文献样式,  plain,unsrt,alpha,abbrv,chinesebst 等等
 \bibliography{ref/refs.bib}
 
 
